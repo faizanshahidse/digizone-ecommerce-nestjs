@@ -1,0 +1,40 @@
+{
+  "PORT": "3100",
+  "MONGODB_URL": "mongodb+srv://faizanshahidsocial:NhTkRELkWDSAs7Oz@cluster0.elmqreh.mongodb.net/",
+  "ADMIN_SECRET_TOKEN": "admin@123",
+  "APP_PREFIX": "/api/v1",
+  "MAILGUN": {
+    "TEST_DOMAIN": "sandboxe970f1f68f2148ab81c24419ca006632.mailgun.org",
+    "PRIVATE_API_KEY": "d56c8cdcedeeabad44a46cb7459ddabf-911539ec-b542e96b",
+    "PUBLIC_API_KEY": "pubkey-13935b0ba726a3b8cc64b63504bf898c",
+    "EMAIL_TEMPLATES": {
+      "OTP": "otp"
+    }
+  },
+  "JWT_SECRET": "secret",
+  "MAIL": {
+    "HOST": "smtp.ethereal.email",
+    "PORT": 465,
+    "USERNAME": "",
+    "TYPE": "",
+    "CLIENT_ID": "",
+    "CLIENT_SECRET": "",
+    "REFRESH_TOKEN": "",
+    "ACCESS_TOKEN": ""
+  },
+  "STRIPE": {
+    "PUBLISH_KEY": "pk_test_51Po2Le08z4LzU8eSGRqkTWhlqhGAwBxuNI3MmjuStmc1mOkmlYCmxv175CSxCw8yX2KtZNDc6dpbqxBTHkcYTFyN00m6bYyPjs",
+    "SECRET_KEY": "sk_test_51Po2Le08z4LzU8eSzBsNdXCsbWVqg3PSrr7GFwqIxOS6csDqSm6e6QjG3QABBuDzV5o79yZ9c2We8hn88XCS2ayW003lbySk9e",
+    "SUCCESS_URL": "http://localhost:3100/order-success",
+    "CANCEL_URL": "http://localhost:3100/order-cancel",
+    "WEBHOOK_SECRET": "whsec_e029cc84bfbadb8c4c645b4ca1e17c92131165b0612575cb8e0a0c52ffec5f1e"
+  },
+  "CLOUDINARY": {
+    "CLOUD_NAME": "dzqztecxz",
+    "API_KEY": "191933529218441",
+    "API_SECRET": "44m3UraEhN9e3ySljYAZ-IeFDe0",
+    "FOLDER_PATH": "digizone/products/",
+    "PUBLICID_PREFIX": "digi_prods_",
+    "BIG_SIZE": "400*400"
+  }
+}

@@ -80,7 +80,7 @@ export class Products {
       platformType.LINUX,
     ],
   })
-  plateformType: string;
+  platformType: string;
 
   @Prop({ required: true, enum: [baseType.COMPUTER, baseType.MOBILE] })
   baseType: string;

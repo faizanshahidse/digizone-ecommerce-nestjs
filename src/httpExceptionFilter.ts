@@ -17,7 +17,11 @@ interface HttpExceptionResponse {
 export class AllExceptionFilter implements ExceptionFilter {
   constructor(private readonly httpAdapterHost: HttpAdapterHost) {}
 
+  // ArgumentsHost => we use it to obtain a reference to the Request and Response objects that are being passed to the original request handler (in the controller where the exception originates).
+  // In this code sample, we've used some helper methods on ArgumentsHost to get the desired Request and Response objects
   catch(exception: any, host: ArgumentsHost): void {
+    // In certain situations `httpAdapter` might not be available in the
+    // constructor method, thus we should resolve it here.
     const { httpAdapter } = this.httpAdapterHost;
     const ctx = host.switchToHttp();
 
@@ -36,7 +40,7 @@ export class AllExceptionFilter implements ExceptionFilter {
     const responseBody = {
       statuCode: httpStatus,
       timeStamp: new Date().toISOString(),
-      path: ctx.getRequest().url,
+      path: httpAdapter.getRequestUrl(ctx.getRequest()),
       message:
         (exceptionResponse as HttpExceptionResponse).error ||
         (exceptionResponse as HttpExceptionResponse).message ||

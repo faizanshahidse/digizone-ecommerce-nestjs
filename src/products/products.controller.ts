@@ -7,12 +7,16 @@ import {
   Param,
   Delete,
   HttpCode,
+  Query,
+  ParseIntPipe,
+  ParseArrayPipe,
 } from '@nestjs/common';
 import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { UpdateProductDto } from './dto/update-product.dto';
 import { Roles } from 'src/shared/middleware/role.decorators';
 import { userTypes } from 'src/shared/schema/users';
+import { GetProductQueryDto } from './dto/get-product-query.dto';
 
 @Controller('products')
 export class ProductsController {
@@ -26,8 +30,8 @@ export class ProductsController {
   }
 
   @Get()
-  findAll() {
-    return this.productsService.findAll();
+  findAll(@Query() query: GetProductQueryDto) {
+    return this.productsService.findAllProducts(query);
   }
 
   @Get(':id')

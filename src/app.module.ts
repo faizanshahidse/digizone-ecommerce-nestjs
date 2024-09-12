@@ -1,23 +1,22 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MongooseModule } from '@nestjs/mongoose';
-import config from 'config';
 import { AllExceptionFilter } from './httpExceptionFilter';
 import { APP_FILTER } from '@nestjs/core';
 import { UsersModule } from './users/users.module';
-import { ConfigModule } from '@nestjs/config';
 import { ProductsModule } from './products/products.module';
 import { StripeModule } from './stripe/stripe.module';
 
-const ENV = process.env.NODE_ENV;
+import { DatabaseModule } from './shared/modules/database.module';
+// import { EnvConfigModule } from './shared/modules/env-config.module';
+import { ConfigModule } from './config/config.module';
+
 @Module({
   imports: [
-    MongooseModule.forRoot(config.get('MONGODB_URL'), {}),
+    DatabaseModule,
+    // EnvConfigModule,
+    ConfigModule.forRoot({ folder: './config' }),
     UsersModule,
-    ConfigModule.forRoot({
-      envFilePath: !ENV ? '.env.development' : `.env.${ENV}`,
-    }),
     ProductsModule,
     StripeModule,
   ],

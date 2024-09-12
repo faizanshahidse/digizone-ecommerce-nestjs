@@ -14,6 +14,11 @@
 - npm i cookie-parser && npm i -d @types/cookie-parser
 - npm i cloudinary
 - npm i stripe nestjs-stripe
+- npm i qs-to-mongo
+- npm i dotenv --save
+- npm install class-transformer
+- npm i morgan --save
+- npm i --save-dev @types/morgan
 
 ## Installation
 

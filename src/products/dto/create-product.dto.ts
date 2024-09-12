@@ -36,7 +36,7 @@ export class CreateProductDto {
   @IsString()
   @IsNotEmpty()
   @IsEnum(platformType)
-  platform: string;
+  platformType: string;
 
   @IsString()
   @IsNotEmpty()
@@ -45,7 +45,7 @@ export class CreateProductDto {
 
   @IsString()
   @IsNotEmpty()
-  productionUrl: string;
+  productUrl: string;
 
   @IsString()
   @IsNotEmpty()

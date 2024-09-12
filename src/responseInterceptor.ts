@@ -1,5 +1,5 @@
 import { CallHandler, ExecutionContext, NestInterceptor } from '@nestjs/common';
-import { map, Observable } from 'rxjs';
+import { map, Observable, of, tap } from 'rxjs';
 
 interface Response<T> {
   message: string;
@@ -20,6 +20,14 @@ export class responseInterceptor<T> implements NestInterceptor {
 
     const statusCode = ctx.getResponse().statusCode;
     const path = ctx.getRequest().url;
+
+    // return next.handle().pipe(
+    //   tap(() => {
+    //     console.log('tap............');
+    //   }),
+    // );
+
+    // return of([]);
 
     return next.handle().pipe(
       map((data) => ({
